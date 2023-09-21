@@ -19,8 +19,13 @@ public class App {
 	
 	private static void grafoTest() {
 		Grafo<String> grafo = new Grafo<String>();
-		String s = JOptionPane.showInputDialog("Adicionar Vertice");
-		grafo.addVertice(s);
+		String qntd = JOptionPane.showInputDialog("Quantidade");
+		
+		for(int i = 0; i < qntd.length(); i++) {
+			String v1 = JOptionPane.showInputDialog("Adicionar vertice");
+		}
+	
+		
 		System.out.println(grafo);
 		
 		

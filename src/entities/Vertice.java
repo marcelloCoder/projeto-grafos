@@ -31,6 +31,22 @@ public class Vertice<E> {
 	public void addArestaSaida(Aresta<E> aresta) {
 		this.arestasSaidas.add(aresta);
 	}
+
+	public ArrayList<Aresta<E>> getArestasEntradas() {
+		return arestasEntradas;
+	}
+
+	public void setArestasEntradas(ArrayList<Aresta<E>> arestasEntradas) {
+		this.arestasEntradas = arestasEntradas;
+	}
+
+	public ArrayList<Aresta<E>> getArestasSaidas() {
+		return arestasSaidas;
+	}
+
+	public void setArestasSaidas(ArrayList<Aresta<E>> arestasSaidas) {
+		this.arestasSaidas = arestasSaidas;
+	}
 	
 	
 

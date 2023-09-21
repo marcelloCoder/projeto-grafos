@@ -39,6 +39,28 @@ public class Grafo<E> {
 		return vertice;
 	}
 	
+	public void buscaValor() {
+		ArrayList<Vertice<E>> marcados = new ArrayList<Vertice<E>>();
+		ArrayList<Vertice<E>> fila = new ArrayList<Vertice<E>>();
+		Vertice<E> atual = this.vertices.get(0);
+		marcados.add(atual);
+		System.out.println(atual.getDado());
+		fila.add(atual);
+		while(fila.size() > 0) {
+			Vertice<E> visitado = fila.get(0);
+			for(int i = 0; i < visitado.getArestasSaidas().size(); i++) {
+				Vertice<E> next = visitado.getArestasSaidas().get(i).getFim();
+				if(!marcados.contains(next)) {
+					marcados.add(next);
+					System.out.println(next.getDado());
+					fila.add(next);
+				}
+			}
+			fila.remove(0);
+			
+		}
+	}
+	
 	
 	
 	
