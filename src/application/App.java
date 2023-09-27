@@ -69,7 +69,8 @@ public class App {
 		String modJogo = JOptionPane.showInputDialog("Digite\n"
 				+ "1 para ir ao Menu principal\n"
 				+ "2 para Inserir Rotas\n"
-				+ "3 para sair");
+				+ "3 para mostrar Rotas adicionadas\n"
+				+ "4 para sair");
 		
 		Integer n = Integer.parseInt(modJogo);
 		
@@ -108,7 +109,8 @@ public class App {
 		String modLog = JOptionPane.showInputDialog("Digite\n"
 				+ "1 para ir ao Menu principal\n"
 				+ "2 para Inserir Rotas\n"
-				+ "3 para sair");
+				+ "3 para mostrar Rotas adicionadas\n"
+				+ "4 para sair");
 		
 		Integer n = Integer.parseInt(modLog);
 		
@@ -141,11 +143,6 @@ public class App {
 		else {
 			exibeMessageError();
 		}
-	}
-
-	private static void inicializarGrafo() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
