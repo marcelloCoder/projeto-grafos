@@ -28,6 +28,11 @@ public class Aresta<E>{
 		this.inicio = inicio;
 		this.fim = fim;
 	}
+	@Override
+	public String toString() {
+		return "Aresta [" + (peso != null ? "peso=" + peso : "") + "]";
+	}
+	
 	
 	
 }

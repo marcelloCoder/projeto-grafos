@@ -8,6 +8,7 @@ public class Grafo<E> {
 	private ArrayList<Aresta<E>> arestas;
 	
 	
+
 	public Grafo() {
 		this.vertices = new ArrayList<Vertice<E>>();
 		this.arestas = new ArrayList<Aresta<E>>();
@@ -54,12 +55,40 @@ public class Grafo<E> {
 					marcados.add(next);
 					System.out.println(next.getDado());
 					fila.add(next);
+					
 				}
 			}
 			fila.remove(0);
 			
 		}
 	}
+	
+	public void exibirDadosDoGrafo() {
+        System.out.println("Vertices:");
+        for (Vertice<E> vertice : vertices) {
+            System.out.println("Vertice: " + vertice.getDado());
+            System.out.println("Arestas de entrada:");
+            for (Aresta<E> aresta : vertice.getArestasEntradas()) {
+                System.out.println("   - Peso: " + aresta.getPeso());
+                System.out.println("     Inicio: " + aresta.getInicio().getDado());
+                System.out.println("     Fim: " + aresta.getFim().getDado());
+            }
+            System.out.println("Arestas de saída:");
+            for (Aresta<E> aresta : vertice.getArestasSaidas()) {
+                System.out.println("   - Peso: " + aresta.getPeso());
+                System.out.println("     Inicio: " + aresta.getInicio().getDado());
+                System.out.println("     Fim: " + aresta.getFim().getDado());
+            }
+            System.out.println();
+        }
+        System.out.println("Arestas:");
+        for (Aresta<E> aresta : arestas) {
+            System.out.println("Aresta com peso: " + aresta.getPeso());
+            System.out.println("Inicio: " + aresta.getInicio().getDado());
+            System.out.println("Fim: " + aresta.getFim().getDado());
+            System.out.println();
+        }
+    }
 	
 	
 	
