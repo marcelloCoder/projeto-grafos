@@ -9,7 +9,7 @@ public class App {
 	static Grafo<String> grafo = new Grafo<String>();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//iniciarPrograma();
+		
 		iniciarPrograma();
 		
 		
@@ -19,25 +19,6 @@ public class App {
 	}
 	
 	
-	
-	private static void grafoTest() {
-		
-		
-		//String qntd = JOptionPane.showInputDialog("Quantidade");
-	
-		
-		
-	
-		
-	
-        	
-        // Adicione vértices e arestas ao grafo conforme necessário
-        
-       
-		
-		
-		
-	}
 
 
 

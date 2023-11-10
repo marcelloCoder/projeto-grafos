@@ -26,11 +26,11 @@ public class Grafo<E> {
 		Aresta<E> aresta = new Aresta<E>(peso, inicio, fim);
 		inicio.addArestaSaida(aresta);
 		fim.addArestaEntrada(aresta);
-		this.arestas.add(aresta);
+		this.arestas.add(aresta); //Salvar dados no grafo
 	}
 	
-	public Vertice<E> getVertice(E dado){
-		Vertice<E> vertice = null;
+	public Vertice<E> getVertice(E dado){ //Verificação se o vertice existe 
+		Vertice<E> vertice = null; //Retorna null se nao encontrar
 		for(int i = 0; i < this.vertices.size(); i++) {
 			if(this.vertices.get(i).getDado().equals(dado)) {
 				vertice = this.vertices.get(i);
@@ -43,22 +43,22 @@ public class Grafo<E> {
 	public void buscaValor() {
 		ArrayList<Vertice<E>> marcados = new ArrayList<Vertice<E>>();
 		ArrayList<Vertice<E>> fila = new ArrayList<Vertice<E>>();
-		Vertice<E> atual = this.vertices.get(0);
+		Vertice<E> atual = this.vertices.get(0); //Pegando o primeiro elemento do grafo
 		marcados.add(atual);
-		System.out.println(atual.getDado());
-		fila.add(atual);
-		while(fila.size() > 0) {
-			Vertice<E> visitado = fila.get(0);
-			for(int i = 0; i < visitado.getArestasSaidas().size(); i++) {
-				Vertice<E> next = visitado.getArestasSaidas().get(i).getFim();
-				if(!marcados.contains(next)) {
+		System.out.println(atual.getDado());// Dado na posição visitada marcada e imprimida
+		fila.add(atual); // Marca os elementos visitados
+		while(fila.size() > 0) { // Enquanto existe vertice/percorrer as arestas na fila ele vai visitando
+			Vertice<E> visitado = fila.get(0); // Pegar o primeiro elemento visitado
+			for(int i = 0; i < visitado.getArestasSaidas().size(); i++) { //Percorrr todas as Arestas que saem do vertice
+				Vertice<E> next = visitado.getArestasSaidas().get(i).getFim(); // Recebe o final da aresta 
+				if(!marcados.contains(next)) {//Verificar se vertice nao foi visitado
 					marcados.add(next);
 					System.out.println(next.getDado());
-					fila.add(next);
+					fila.add(next); //Adiciona se caso ainda nao foi visitado
 					
 				}
 			}
-			fila.remove(0);
+			fila.remove(0); // Quando faz toda a validação remove o primeiro vertice da fila
 			
 		}
 	}
