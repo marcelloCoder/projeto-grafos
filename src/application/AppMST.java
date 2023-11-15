@@ -8,36 +8,25 @@ import java.util.Scanner;
 /*Este código é uma implementação do algoritmo de Kruskal para encontrar 
  * a Árvore Geradora Mínima (Minimum Spanning Tree - MST) 
  * de um grafo não direcionado e ponderado.
- *  A classe `Grafo` representa um grafo e possui três membros: 
- *  `int vertices` (representando o número de vértices no grafo), 
- *  `int arestas` (representando o número de arestas no grafo) e 
- *  `Aresta aresta[]` (uma matriz que contém todas as arestas do grafo). 
- *  A classe `Aresta` representa uma aresta que conecta dois vértices do grafo, 
- *  e possui três membros: `int origem` (representando o vértice de origem da aresta),
- *   `int destino` (representando o vértice de destino da aresta) e 
- *   `int peso` (representando o peso/número associado à aresta). 
- *   A classe `subconjunto` representa um subconjunto de vértices do grafo e possui dois membros: 
- *   `int pai` (representando o pai do subconjunto) e 
- *   `int classificacao` (representando a classificação do subconjunto). 
+ *  
+ *   
+ *   
  *   A classe `Grafo` possui vários métodos. 
- *   O método `encontrar` é uma função recursiva que encontra o 
- *   conjunto pai de um subconjunto específico em uma árvore de subconjuntos. 
- *   O método `unir` une dois subconjuntos diferentes em um único subconjunto.
- *   O método `KruskalMST` executa o algoritmo de Kruskal para encontrar a
- *   Árvore Geradora Mínima do grafo. Ele ordena as arestas em ordem crescente de peso,
- *   cria os subconjuntos de vértices, seleciona as arestas em ordem crescente de peso 
- *   e as adiciona à MST se elas não formam um ciclo.
- *   A classe `AppMST` é a classe principal do programa. 
- *   Ela lê o grafo de um arquivo de texto e cria um objeto da classe `Grafo` 
- *   com base nas informações lidas. 
- *   Em seguida, ela chama o método `KruskalMST` para encontrar e exibir a 
- *   Árvore Geradora Mínima do grafo. No arquivo `g.txt`, 
- *   a primeira linha contém o número de vértices e o número de arestas do grafo. 
- *   As linhas seguintes contêm as informações de cada aresta: o vértice de origem, 
- *   o vértice de destino e o peso da aresta.*/
+ *   
+ *   
+ *   
+ *   */
 
 class Grafo {
+	/*A classe `Grafo` representa um grafo e possui três membros: 
+ *  `int vertices` (representando o número de vértices no grafo), 
+ *  `int arestas` (representando o número de arestas no grafo) e 
+ *  `Aresta aresta[]` (uma matriz que contém todas as arestas do grafo). */
     class Aresta implements Comparable<Aresta> {
+    	/*A classe `Aresta` representa uma aresta que conecta dois vértices do grafo, 
+ *  e possui três membros: `int origem` (representando o vértice de origem da aresta),
+ *   `int destino` (representando o vértice de destino da aresta) e 
+ *   `int peso` (representando o peso/número associado à aresta).*/
         int origem, destino, peso;
 
         public int compareTo(Aresta outraAresta) {
@@ -46,6 +35,10 @@ class Grafo {
     };
 
     class subconjunto {
+    	/*A classe `subconjunto` representa um subconjunto de 
+    	 * vértices do grafo e possui dois membros: 
+ *   `int pai` (representando o pai do subconjunto) e 
+ *   `int classificacao` (representando a classificação do subconjunto). */
         int pai, classificacao;
     };
 
@@ -62,6 +55,8 @@ class Grafo {
     
 
     int encontrar(subconjunto subconjuntos[], int i) {
+    	/*O método `encontrar` é uma função recursiva que encontra o 
+ *   conjunto pai de um subconjunto específico em uma árvore de subconjuntos. */
         if (subconjuntos[i].pai != i)
             subconjuntos[i].pai = encontrar(subconjuntos, subconjuntos[i].pai);
 
@@ -69,6 +64,7 @@ class Grafo {
     }
 
     void unir(subconjunto subconjuntos[], int x, int y) {
+    	/*O método `unir` une dois subconjuntos diferentes em um único subconjunto.*/
         int raizX = encontrar(subconjuntos, x);
         int raizY = encontrar(subconjuntos, y);
 
@@ -83,6 +79,13 @@ class Grafo {
     }
 
     void KruskalMST() {
+    	/*O método `KruskalMST` executa o algoritmo de Kruskal para encontrar a
+ *   Árvore Geradora Mínima do grafo. 
+ *   Ele ordena as arestas em ordem crescente de peso,
+ *   cria os subconjuntos de vértices, 
+ *   seleciona as arestas em ordem crescente de peso 
+ *   e as adiciona à MST se elas não formam um ciclo.
+ *   Imprime as arestas da MST.*/
         Aresta resultado[] = new Aresta[vertices];
         int e = 0;
         int i = 0;
@@ -119,6 +122,16 @@ class Grafo {
 
 public class AppMST {
     public static void main(String[] args) {
+    	
+    	/*A classe `AppMST` é a classe principal do programa. 
+ *   Ela lê o grafo de um arquivo de texto e cria um objeto da classe `Grafo` 
+ *   com base nas informações lidas. 
+ *   Em seguida, ela chama o método `KruskalMST` para encontrar e exibir a 
+ *   Árvore Geradora Mínima do grafo. No arquivo `g.txt`, 
+ *   a primeira linha contém o número de vértices e o número de arestas do grafo. 
+ *   As linhas seguintes contêm as informações de cada aresta: o vértice de origem, 
+ *   o vértice de destino e o peso da aresta.*/
+    	
         try {
             File arquivo = new File("C:\\\\projetos-java-jdk17\\\\trabalho-grafos\\\\g.txt");
             Scanner scanner = new Scanner(arquivo);
