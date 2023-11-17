@@ -11,6 +11,11 @@ public class Caminho {
 		this.origem = origem;
 		this.destino = destino;
 	}
+
+	@Override
+	public String toString() {
+		return "\n[peso=" + peso + ", origem=" + origem + ", destino=" + destino + "]";
+	}
 	
 	
 
