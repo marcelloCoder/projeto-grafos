@@ -36,7 +36,7 @@ public class AppKruskal {
 		
 		for(int i = 0; i < 100; i++) {
 			kruskal.pais[i] = i;
-			System.out.println(kruskal.pais[i]);
+			//System.out.println(kruskal.pais[i]);
 			
 		}
 		
@@ -49,7 +49,7 @@ public class AppKruskal {
 		int origem;
 		
 		List<Caminho> caminhos = new ArrayList<Caminho>();
-		System.out.println("DIGITE O NUMERO DE NOS DO GRAFO");
+		System.out.println("DIGITE O NUMERO DE VERTICES DO GRAFO");
 		vertices = scan.nextInt();
 		System.out.println("DIGITE O NUMERO DE ARESTAS");
 		arestas = scan.nextInt();
@@ -57,10 +57,12 @@ public class AppKruskal {
 		for(int i = 0; i < arestas; i++) {
 			System.out.println("ORIGEM");
 			origem = scan.nextInt();
+			
+			System.out.println("DESTINO");
+			destino = scan.nextInt();
+			
 			System.out.println("PESO");
 			peso = scan.nextInt();
-			System.out.println("DESTINO");
-			destino = scan.nextInt();		
 			caminhos.add(new Caminho(peso, origem, destino));
 		}
 		
@@ -81,8 +83,23 @@ public class AppKruskal {
 			origem = caminhos.get(cont).origem;
 			destino = caminhos.get(cont).destino;
 			peso = caminhos.get(cont).peso;
+			
+			if(kruskal.encontrar(origem) != kruskal.encontrar(destino)) {
+				kruskal.unir(origem, destino);
+				peso_total+=peso;
+				System.out.println(" " + origem + " ==> " + destino + " :" + peso);
+				grafo_caminhos++;
+				
+			}
+			
+			cont++;
+			
 		}
 
+		if(grafo_caminhos != vertices - 1) {
+			System.out.println("Grafo incorreto");
+			System.out.println("Grafo encontrado é de :" + peso_total);
+		}
 		
 		
 	}
